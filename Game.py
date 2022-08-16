@@ -20,6 +20,11 @@ class Game:
         elif player2.get_value() > player1.get_value():
             player2.score += 1
 
+    def display_final(self):
+        print(f"\nFINAL TALLY:\n")
+        print(f"{'Player:':<10}{self.players[0].score}")
+        print(f"{'Computer:':<10}{self.players[1].score}\n")
+        print(f"YOU {'WIN' if self.players[0].score > self.players[1].score else 'LOSE'}")
 
     def play(self):
         self.shuffle()
@@ -31,6 +36,7 @@ class Game:
                 player.print_hand()
             user_choice = input("Play again? (y/n) \n>")
             if user_choice.lower() == 'n':
+                self.display_final()
                 break
             
 
