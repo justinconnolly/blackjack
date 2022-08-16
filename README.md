@@ -9,6 +9,6 @@ python3 Game.py
 to start.
 
 ## TODO:
-- Add checks for end of deck
+- ~~Add checks for end of deck~~ Will empty hands and reshuffle before dealing new cards
 - Add checks for terminal length (deal more cards than reasonable fit to find out why!)
   - Maybe just change it to stacked cards to avoid this entirely
