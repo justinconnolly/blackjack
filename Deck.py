@@ -50,7 +50,8 @@ class Deck:
                 f"|{'of'.center(10)}|",
                 f"|{self.suits[self.suit].center(10)}|",
                 f"|{'|':>11}",
-                f"|{(self.value if self.value not in self.faces else self.faces[self.value][:1])}{self.suits[self.suit][:1]}{'|':>9}",
+                f"|{(str(self.value) if self.value not in self.faces else self.faces[self.value][:1]) + self.suits[self.suit][:1]:<10}|",
+                # f"|{(self.value if self.value not in self.faces else self.faces[self.value][:1])}{self.suits[self.suit][:1]}{'|':>9}",
                 f" {'_' * self.size} "
                 ]
             return ret_str
