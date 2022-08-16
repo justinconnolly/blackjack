@@ -109,16 +109,3 @@ class Deck:
             # hands[i % players].add_card(self.deck[i])
             hands[i].add_card(self.deck.pop(0))
         return hands
-
-
-if __name__ == "__main__":
-    deck = Deck()
-    print(piece for piece in list(deck.deck[5].pretty_card()))
-    for piece in deck.deck[5].pretty_card():
-        print(piece)
-    deck.shuffle()
-    hands = deck.deal(2,False)
-    # for card in 
-    # print(deck)
-    # print(f"|{'hello'.center(10)}|")
-    # print(f"{'hello':>10}")
