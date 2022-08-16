@@ -24,20 +24,30 @@ class Game:
         print(f"\nFINAL TALLY:\n")
         print(f"{'Player:':<10}{self.players[0].score}")
         print(f"{'Computer:':<10}{self.players[1].score}\n")
-        print(f"YOU {'WIN' if self.players[0].score > self.players[1].score else 'LOSE'}")
+        if self.players[0].score == self.players[1].score:
+            print("TIE GAME")
+        else:
+            print(f"YOU {'WIN' if self.players[0].score > self.players[1].score else 'LOSE'}")
 
     def play(self):
         self.shuffle()
         while True:
-            for i in range(2):
-                self.deal(self.players[i])
-            self.find_winner(self.players[0], self.players[1])
-            for player in self.players:
-                player.print_hand()
-            user_choice = input("Play again? (y/n) \n>")
-            if user_choice.lower() == 'n':
-                self.display_final()
-                break
+            if len(self.players[0].hands.hand) < 26:
+                for i in range(2):
+                    self.deal(self.players[i])
+                self.find_winner(self.players[0], self.players[1])
+                for player in self.players:
+                    player.print_hand()
+                user_choice = input("Play again? (y/n) \n>")
+                if user_choice.lower() == 'n':
+                    self.display_final()
+                    break
+            else:
+                print("Deck is empty, reshuffling.")
+                for i in range(2):
+                    self.players[i].hands.hand = []
+                self.deck = Deck()
+                self.shuffle()
             
 
 if __name__ == "__main__":
